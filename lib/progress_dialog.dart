@@ -157,10 +157,11 @@ class ProgressDialog {
         if (_showLogs) debugPrint("ProgressDialog already shown/showing");
         return false;
       }
-    } catch (err) {
+    } catch (err, stack) {
       _isShowing = false;
       debugPrint('Exception while showing the dialog');
-      debugPrint(err);
+      debugPrint(err.toString());
+      debugPrint(stack.toString());
       return false;
     }
   }
